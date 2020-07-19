@@ -4,14 +4,12 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
 import Tooltip from "@material-ui/core/Tooltip";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import Box from "@material-ui/core/Box";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -22,129 +20,106 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
+  menuSection: {
+    flexGrow: 1,
+    textAlign: "center",
+  },
   title: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
   },
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
-    },
-  },
+  sectionSocial: {},
   sectionMobile: {
     display: "flex",
     [theme.breakpoints.up("md")]: {
       display: "none",
     },
   },
+  logo: {
+    height: "35px",
+  },
+  icon: {
+    color: theme.palette.secondary.main,
+  },
 }));
 
 export default function PrimaryAppBar() {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const doSomething = () => {
+    console.log("doSomething!");
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <TwitterIcon />
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <FacebookIcon />
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <GitHubIcon />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
+  const openExternalLink = (url) => {};
 
   return (
     <Box className={classes.container}>
-      <div className={classes.grow}>
+      <Box className={classes.grow}>
         <AppBar position="static">
           <Toolbar>
-            <Typography className={classes.title} variant="h6" noWrap>
-              ChiliCheese.org
-            </Typography>
-            <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <Tooltip title="Follow us on Twitter">
-                <IconButton aria-label="follow us on twitter" color="inherit">
-                  <TwitterIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Join us on Facebook">
-                <IconButton aria-label="join us on facebook" color="inherit">
-                  <FacebookIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Help us improve on GitHub">
-                <IconButton aria-label="contribute on github" color="inherit">
-                  <GitHubIcon />
-                </IconButton>
-              </Tooltip>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </div>
+            <Box className={classes.menuSection}>
+              <Link color="secondary" href="#" onClick={doSomething}>
+                About
+              </Link>
+            </Box>
+            <Box className={classes.menuSection}>
+              <Link color="secondary" href="#" onClick={doSomething}>
+                FAQ
+              </Link>
+            </Box>
+            <Box className={classes.menuSection}>
+              <img
+                className={classes.logo}
+                src="images/logo-50.png"
+                alt="ChiliCheese.org"
+              />
+            </Box>
+            <Box className={classes.menuSection}>
+              <Link color="secondary" href="#" onClick={doSomething}>
+                Press
+              </Link>
+            </Box>
+            <Box className={classes.menuSection}>
+              <Box className={classes.sectionSocial}>
+                <Tooltip title="Follow us on Twitter">
+                  <IconButton
+                    aria-label="follow us on twitter"
+                    color="inherit"
+                    onClick={openExternalLink(
+                      "https://twitter.com/ChiliCheese_"
+                    )}
+                  >
+                    <TwitterIcon className={classes.icon} />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Join us on Facebook">
+                  <IconButton
+                    aria-label="join us on facebook"
+                    color="inherit"
+                    onClick={openExternalLink(
+                      "https://www.facebook.com/TheChiliCheeseBurrito"
+                    )}
+                  >
+                    <FacebookIcon className={classes.icon} />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Help us improve on GitHub">
+                  <IconButton
+                    aria-label="contribute on github"
+                    color="inherit"
+                    onClick={openExternalLink(
+                      "https://github.com/ChiliCheese-org/chilicheese.org"
+                    )}
+                  >
+                    <GitHubIcon className={classes.icon} />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+            </Box>
           </Toolbar>
         </AppBar>
-        {renderMobileMenu}
-      </div>
+      </Box>
     </Box>
   );
 }
