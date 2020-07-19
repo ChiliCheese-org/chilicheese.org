@@ -8,11 +8,12 @@ This repository contains the source code for version 3 (current version) of the 
 2. `yarn install`
 3. `yarn start`
 
-## Libraries used
+## Tools used
  - [React](https://reactjs.org/)
  - [Material UI](https://material-ui.com/)
- - [Firebase](https://firebase.google.com/)
  - [google-maps-react](https://github.com/fullstackreact/google-maps-react)
+ - [Firebase](https://firebase.google.com/)
+ - [CircleCI](https://circleci.com/)
 
 ## How to contribute
 
