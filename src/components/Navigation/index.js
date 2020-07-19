@@ -109,7 +109,7 @@ export default function PrimaryAppBar() {
                     aria-label="contribute on github"
                     color="inherit"
                     onClick={openExternalLink(
-                      "https://github.com/ChiliCheese-org"
+                      "https://github.com/ChiliCheese-org/chilicheese.org"
                     )}
                   >
                     <GitHubIcon className={classes.icon} />
