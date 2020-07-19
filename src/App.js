@@ -1,9 +1,9 @@
 import React from "react";
-import GoogleApiWrapper from "./components/Map";
+import MainPage from "./pages/Main";
 import "./App.css";
 
 function App() {
-  return <GoogleApiWrapper />;
+  return <MainPage />;
 }
 
 export default App;
