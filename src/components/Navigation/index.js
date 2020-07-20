@@ -139,7 +139,9 @@ export default function PrimaryAppBar() {
         </Box>
       </Box>
       <Dialog open={openDialog} onClose={handleClose} scroll="paper">
-        <DialogTitle id="scroll-dialog-title">About</DialogTitle>
+        <DialogTitle id="scroll-dialog-title">
+          About ChiliCheese.org
+        </DialogTitle>
         <DialogContent dividers>
           <DialogContentText
             id="scroll-dialog-description"
@@ -157,8 +159,8 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Close
+          <Button onClick={handleClose} color="secondary">
+            Back
           </Button>
         </DialogActions>
       </Dialog>

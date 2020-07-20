@@ -1,12 +1,33 @@
 import { createMuiTheme } from "@material-ui/core/styles";
+import purple from "@material-ui/core/colors/purple";
+import amber from "@material-ui/core/colors/amber";
 
 export default createMuiTheme({
   palette: {
     primary: {
-      main: "#f8bd05",
+      main: amber[500],
     },
     secondary: {
-      main: "#8702b2",
+      main: purple[500],
+    },
+  },
+  overrides: {
+    MuiDialogTitle: {
+      root: {
+        backgroundColor: amber[500],
+        color: purple[500],
+      },
+    },
+    MuiDialogContent: {
+      root: {
+        backgroundColor: amber[200],
+      },
+    },
+    MuiDialogActions: {
+      root: {
+        backgroundColor: amber[500],
+        color: purple[500],
+      },
     },
   },
 });
