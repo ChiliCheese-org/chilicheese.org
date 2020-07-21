@@ -29,5 +29,10 @@ export default createMuiTheme({
         color: purple[500],
       },
     },
+    MuiPaper: {
+      root: {
+        backgroundColor: amber[300],
+      },
+    },
   },
 });

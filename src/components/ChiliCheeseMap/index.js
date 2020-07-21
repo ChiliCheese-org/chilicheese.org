@@ -8,6 +8,9 @@ const locations = [
     id: 1,
     name: "Location 1",
     address: "1234 Main Street",
+    city: "Emeryville",
+    state: "California",
+    zip: "94710",
     lat: 37.8501472,
     lng: -122.31000640000002,
     hasCcb: true,
@@ -16,6 +19,9 @@ const locations = [
     id: 2,
     name: "Location 2",
     address: "4321 Elm Street",
+    city: "Emeryville",
+    state: "California",
+    zip: "94710",
     lat: 37.8401472,
     lng: -122.32000640000002,
     hasCcb: false,
@@ -24,6 +30,9 @@ const locations = [
     id: 3,
     name: "Location 3",
     address: "9999 Ninth Street",
+    city: "Berkeley",
+    state: "California",
+    zip: "94710",
     lat: 37.8401472,
     lng: -122.33000640000002,
     hasCcb: true,
@@ -35,6 +44,7 @@ export const ChiliCheeseMap = ({ google }) => {
   const [activeMarker, setActiveMarker] = useState(null);
   const [location, setLocation] = useState({});
   const [userLocation, setUserLocation] = useState({});
+  const [mapCenter, setMapCenter] = useState();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -48,21 +58,31 @@ export const ChiliCheeseMap = ({ google }) => {
     setActiveMarker(null);
     setLocation({});
   };
+
   const handleMarkerClick = (location, marker, e) => {
     setActiveMarker(marker);
     setShowInfoWindow(true);
     setLocation(location);
   };
+
   const handleInfoWIndowClose = () => {
     setShowInfoWindow(false);
     setActiveMarker(null);
+  };
+
+  const handleLocationHover = (location) => {
+    setMapCenter(location);
   };
 
   const { id, name, address, lat, lng } = location;
 
   return (
     <>
-      <LocationsWindow user={userLocation} locations={locations} />
+      <LocationsWindow
+        userLocation={userLocation}
+        locations={locations}
+        onLocationMouseOver={handleLocationHover}
+      />
       <Map
         google={google}
         zoom={14}
@@ -70,6 +90,7 @@ export const ChiliCheeseMap = ({ google }) => {
           lat: 37.8601472,
           lng: -122.30000640000002,
         }}
+        center={mapCenter}
         onClick={handleMapClick}
         zoomControl={true}
         scaleControl={false}
