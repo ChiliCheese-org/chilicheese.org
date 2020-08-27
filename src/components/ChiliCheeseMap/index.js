@@ -79,7 +79,7 @@ export const ChiliCheeseMap = ({ google }) => {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div data-chilicheese="map" style={{ display: "flex" }}>
         <div style={{ flex: "1" }}>
           <Map
             google={google}

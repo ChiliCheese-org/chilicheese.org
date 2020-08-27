@@ -12,6 +12,11 @@ export default createMuiTheme({
     },
   },
   overrides: {
+    MuiAppBar: {
+      root: {
+        boxShadow: "none",
+      },
+    },
     MuiDialogTitle: {
       root: {
         backgroundColor: amber[500],

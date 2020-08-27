@@ -19,7 +19,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    position: "absolute",
+    // position: "absolute",
     zIndex: 1000,
     width: "100%",
   },
@@ -71,9 +71,9 @@ export default function PrimaryAppBar() {
 
   return (
     <>
-      <Box className={classes.container}>
+      <Box data-chilicheese="navigation" className={classes.container}>
         <Box className={classes.grow}>
-          <AppBar position="static">
+          <AppBar position="relative">
             <Toolbar>
               <Box className={classes.menuSection}>
                 <Link color="secondary" href="#" onClick={handleClickOpen}>
