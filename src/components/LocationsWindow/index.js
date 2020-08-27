@@ -8,7 +8,7 @@ import Location from "../Location";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    position: "absolute",
+    // position: "absolute",
     top: "80px",
     left: "15px",
     zIndex: 1000,
@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     width: "400px",
     height: "80vh",
+    padding: "0px",
   },
 }));
 
@@ -24,7 +25,7 @@ const LocationsWindow = ({ userLocation, locations, onLocationMouseOver }) => {
 
   return (
     <Box className={classes.container}>
-      <Card>
+      <Card variant="outlined">
         <CardContent className={classes.cardContent}>
           {locations.map((location, id) => (
             <Location

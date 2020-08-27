@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import amber from "@material-ui/core/colors/amber";
 import LocationsWindow from "../LocationsWindow";
 import Splash from "../Splash";
 
@@ -78,48 +79,65 @@ export const ChiliCheeseMap = ({ google }) => {
 
   return (
     <>
-      <LocationsWindow
-        userLocation={userLocation}
-        locations={locations}
-        onLocationMouseOver={handleLocationHover}
-      />
-      <Map
-        google={google}
-        zoom={14}
-        initialCenter={{
-          lat: 37.8601472,
-          lng: -122.30000640000002,
-        }}
-        center={mapCenter}
-        onClick={handleMapClick}
-        zoomControl={true}
-        scaleControl={false}
-        streetViewControl={false}
-        panControl={false}
-        rotateControl={false}
-        mapTypeControl={false}
-        fullscreenControl={false}
-      >
-        {locations.map(({ id, name, address, lat, lng }) => (
-          <Marker
-            key={id}
-            onClick={handleMarkerClick}
-            name={name}
-            title={name}
-            position={{
-              lat,
-              lng,
+      <div style={{ display: "flex" }}>
+        <div style={{ flex: "1" }}>
+          <Map
+            google={google}
+            zoom={14}
+            initialCenter={{
+              lat: 37.8601472,
+              lng: -122.30000640000002,
             }}
-          />
-        ))}
-        <InfoWindow
-          visible={showInfoWindow}
-          marker={activeMarker}
-          onClose={handleInfoWIndowClose}
+            center={mapCenter}
+            onClick={handleMapClick}
+            zoomControl={true}
+            scaleControl={false}
+            streetViewControl={false}
+            panControl={false}
+            rotateControl={false}
+            mapTypeControl={false}
+            fullscreenControl={false}
+            containerStyle={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            {locations.map(({ id, name, address, lat, lng }) => (
+              <Marker
+                key={id}
+                onClick={handleMarkerClick}
+                name={name}
+                title={name}
+                position={{
+                  lat,
+                  lng,
+                }}
+              />
+            ))}
+            <InfoWindow
+              visible={showInfoWindow}
+              marker={activeMarker}
+              onClose={handleInfoWIndowClose}
+            >
+              <div>{name}</div>
+            </InfoWindow>
+          </Map>
+        </div>
+        <div
+          style={{
+            flexBasis: "200px",
+            padding: "1rem",
+            backgroundColor: amber[50],
+          }}
         >
-          <div>{name}</div>
-        </InfoWindow>
-      </Map>
+          <LocationsWindow
+            userLocation={userLocation}
+            locations={locations}
+            onLocationMouseOver={handleLocationHover}
+          />
+        </div>
+      </div>
     </>
   );
 };
