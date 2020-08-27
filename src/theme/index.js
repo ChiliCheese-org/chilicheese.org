@@ -31,7 +31,7 @@ export default createMuiTheme({
     },
     MuiPaper: {
       root: {
-        backgroundColor: amber[300],
+        // backgroundColor: amber[300],
       },
     },
   },
