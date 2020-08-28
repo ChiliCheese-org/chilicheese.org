@@ -23,9 +23,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: amber[50],
     },
   },
-  locationContainer: { display: "flex", marginBottom: theme.spacing(2) },
-  icon: {
-    flexBasis: "50px",
+  locationContainer: { display: "flex" },
+  media: {
+    flexBasis: "100px",
+    backgroundColor: amber[700],
+    borderRadius: "0.5rem",
+  },
+  content: {
+    flex: "1",
+    paddingLeft: "1rem",
+  },
+  meta: {
+    display: "flex",
+    marginBottom: "1rem",
   },
   address: {
     flex: "1",
@@ -60,34 +70,39 @@ const Location = ({
   return (
     <Box className={classes.root} onMouseOver={handleMouseOver}>
       <Box className={classes.locationContainer}>
-        <Box className={classes.icon}></Box>
-        <Box className={classes.address}>
-          <Box className={classes.addressLine}>{name}</Box>
-          <Box className={classes.addressLine}>{address}</Box>
-          <Box className={classes.addressLine}>
-            {city}, {state} {zip}
+        <Box className={classes.media}>Yes</Box>
+        <Box className={classes.content}>
+          <Box className={classes.meta}>
+            <Box className={classes.address}>
+              <Box className={classes.addressLine}>{name}</Box>
+              <Box className={classes.addressLine}>{address}</Box>
+              <Box className={classes.addressLine}>
+                {city}, {state} {zip}
+              </Box>
+            </Box>
+            <Box className={classes.distance}>
+              <Typography variant="caption" display="block" gutterBottom>
+                {distance({ lat, lng }, userLocation)}
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-        <Box className={classes.distance}>
-          <Typography variant="caption" display="block" gutterBottom>
-            {distance({ lat, lng }, userLocation)}
-          </Typography>
-        </Box>
-      </Box>
-      <Box className={classes.votingContainer}>
-        <Box className={classes.downVote}>
-          <Tooltip title="Does not have the chili cheese burrito">
-            <Button className={classes.voteButton} variant="outlined">
-              <ThumbDownIcon />
-            </Button>
-          </Tooltip>
-        </Box>
-        <Box className={classes.upVote}>
-          <Tooltip title="Has the chili cheese burrito">
-            <Button className={classes.voteButton} variant="outlined">
-              <ThumbUpIcon />
-            </Button>
-          </Tooltip>
+
+          <Box className={classes.votingContainer}>
+            <Box className={classes.downVote}>
+              <Tooltip title="Does not have the chili cheese burrito">
+                <Button className={classes.voteButton} variant="outlined">
+                  <ThumbDownIcon />
+                </Button>
+              </Tooltip>
+            </Box>
+            <Box className={classes.upVote}>
+              <Tooltip title="Has the chili cheese burrito">
+                <Button className={classes.voteButton} variant="outlined">
+                  <ThumbUpIcon />
+                </Button>
+              </Tooltip>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </Box>
