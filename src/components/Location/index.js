@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: `1px solid ${theme.palette.divider}`,
     borderRadius: "3px",
     "&:hover": {
-      backgroundColor: amber[50],
+      backgroundColor: amber[100],
     },
   },
   locationContainer: { display: "flex" },

@@ -39,5 +39,17 @@ export default createMuiTheme({
         // backgroundColor: amber[300],
       },
     },
+    MuiMenu: {
+      paper: {
+        backgroundColor: amber[200],
+      },
+    },
+    MuiSelect: {
+      root: {
+        paddingLeft: "0.5rem",
+        fontSize: "0.875rem",
+        color: amber[800],
+      },
+    },
   },
 });
