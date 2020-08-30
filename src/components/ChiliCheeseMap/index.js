@@ -75,7 +75,7 @@ export const ChiliCheeseMap = ({ google }) => {
     setMapCenter(location);
   };
 
-  const { id, name, address, lat, lng } = location;
+  const { name } = location;
 
   return (
     <>
