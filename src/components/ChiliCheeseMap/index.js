@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import amber from "@material-ui/core/colors/amber";
 import LocationsWindow from "../LocationsWindow";
@@ -140,6 +141,13 @@ export const ChiliCheeseMap = ({ google }) => {
       </div>
     </>
   );
+};
+
+ChiliCheeseMap.propTypes = {
+  /**
+   * Google maps object
+   */
+  google: PropTypes.any.isRequired,
 };
 
 export default GoogleApiWrapper({
