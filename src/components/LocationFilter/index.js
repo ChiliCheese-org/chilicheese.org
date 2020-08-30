@@ -55,7 +55,11 @@ const LocationFilter = () => {
         >
           {Object.values(LocationTypes).map((item) => {
             const { label } = item;
-            return <MenuItem value={item}>{label}</MenuItem>;
+            return (
+              <MenuItem key={label} value={item}>
+                {label}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>
