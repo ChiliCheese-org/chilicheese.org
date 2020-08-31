@@ -14,6 +14,7 @@ This repository contains the source code for version 3 (current version) of the 
  - [google-maps-react](https://github.com/fullstackreact/google-maps-react)
  - [Firebase](https://firebase.google.com/)
  - [CircleCI](https://circleci.com/)
+ - [Storybook](https://storybook.js.org/)
 
 ## How to contribute
 
@@ -24,6 +25,9 @@ This repository contains the source code for version 3 (current version) of the 
 5. Create a pull request with yur changes against the `master` branch on https://github.com/ChiliCheese-org/chilicheese.org. (All code owners will be notified on your changes automatically.)
 6. Once your code changes are approved, merge your pull request to master. (This will kick off the production deployment process.)
 7. Once the production deployment process passes, point your browser to ChiliCheese.org and marvel at your changes!
+
+## Publishing to Storybook
+ChiliCheese.org uses [Storybook](https://storybook.js.org) for component demos and documentation. The ChiliCheese.org storybook site can be found at [https://chilicheese-org.github.io/chilicheese.org.storybook/](https://chilicheese-org.github.io/chilicheese.org.storybook/) -- Please feel free to browse our Storybook site to familiarize yourself with the component layout and APIs.
 
 ## Current codeowners
 - [scarabaeus](https://github.com/scarabaeus)
