@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -17,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Renders voting controls used to denote whether a location has the Chili Cheese Burrito
+ */
 const VotingPanel = ({ location }) => {
   const classes = useStyles();
   const handleUpVote = () => {
@@ -51,6 +55,22 @@ const VotingPanel = ({ location }) => {
       </Box>
     </Box>
   );
+};
+
+VotingPanel.propTypes = {
+  /**
+   * The location to display in the location component
+   */
+  location: PropTypes.shape({
+    name: PropTypes.string,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zip: PropTypes.string,
+    phone: PropTypes.string,
+    lat: PropTypes.number.isRequired,
+    lng: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default VotingPanel;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -42,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Renders a location, for use in the LocationsWindow
+ */
 const Location = ({
   location,
   location: { name, address, city, state, zip, phone, lat, lng } = {},
@@ -81,6 +85,26 @@ const Location = ({
       </Box>
     </Box>
   );
+};
+
+Location.propTypes = {
+  /**
+   * The location to display in the location component
+   */
+  location: PropTypes.shape({
+    name: PropTypes.string,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zip: PropTypes.string,
+    phone: PropTypes.string,
+    lat: PropTypes.number.isRequired,
+    lng: PropTypes.number.isRequired,
+  }).isRequired,
+  /**
+   * Callback when the Location component is moused over
+   */
+  onMouseOver: PropTypes.func,
 };
 
 export default Location;

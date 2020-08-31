@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Renders the LocationWindow filter panel
+ */
 const LocationFilter = () => {
   const classes = useStyles();
   const [locationType, setLocationType] = useState(LocationTypes.ALL);
